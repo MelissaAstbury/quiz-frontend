@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import Question from "../../components/Question/Question";
 import "./Quiz.scss";
 
 const Quiz = () => {
@@ -30,8 +31,9 @@ const Quiz = () => {
     <div>
       <p>Start the Quiz now!</p>
       {questions.length > 0 ? (
-        questions.map((question) => {
-          return <p key={question.id}>{question.question}</p>;
+        questions.map((i) => {
+          return <Question key={i.id} question={i} />;
+          // return <p key={i.id}>{i.question}</p>;
         })
       ) : (
         <p>No Questions Found, Sorry!</p>
