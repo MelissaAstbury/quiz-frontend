@@ -1,13 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
+import { answerClicked } from "../../store/actions/quiz";
 import "./Answers.scss";
 
 const Answers = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <div
       className="answer-container"
       onClick={() => {
-        props.pressed(props.correct);
+        dispatch(answerClicked(props.correct));
       }}
     >
       <p>{props.answer}</p>

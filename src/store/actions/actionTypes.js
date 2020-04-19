@@ -1,0 +1,2 @@
+export const FETCH_QUESTIONS = "FETCH_QUESTIONS";
+export const ANSWER_CLICKED = "ANSWER_CLICKED";
