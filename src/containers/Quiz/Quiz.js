@@ -13,7 +13,7 @@ const Quiz = () => {
 
   useEffect(() => {
     dispatch(fetchQuestions());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="quiz-container">

@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.ANSWER_CLICKED:
       return {
         ...state,
-        count: state.count + 1,
+        count: state.count === 11 ? state.count : state.count + 1,
         score: action.data ? state.score + 1 : state.score,
       };
     default:

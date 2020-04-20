@@ -2,6 +2,7 @@ import axios from "axios";
 
 import * as actionTypes from "../actions/actionTypes";
 
+// My backend API which returns questions
 const api = "http://localhost:8081/api/question";
 
 export const fetchStart = () => {
@@ -31,18 +32,17 @@ export const fetchQuestions = () => {
     axios
       .get(api)
       .then((res) => {
-        console.log("here");
         dispatch(fetchQuestionsSuccess(res.data));
       })
       .catch((err) => {
-        console.log("comes into here");
         dispatch(fetchQuestionsFail(err));
       });
   };
 };
 
-export const answerClicked = () => {
+export const answerClicked = (data) => {
   return {
     type: actionTypes.ANSWER_CLICKED,
+    data: data,
   };
 };
