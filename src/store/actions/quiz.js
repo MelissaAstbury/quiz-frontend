@@ -2,37 +2,47 @@ import axios from "axios";
 
 import * as actionTypes from "../actions/actionTypes";
 
-export const fetchQuiz = () => {
+const api = "http://localhost:8081/api/question";
+
+export const fetchStart = () => {
+  return {
+    type: actionTypes.FETCH_QUESTIONS_START,
+  };
+};
+
+export const fetchQuestionsSuccess = (questions) => {
+  return {
+    type: actionTypes.FETCH_QUESTIONS_SUCCESS,
+    payload: questions,
+  };
+};
+
+export const fetchQuestionsFail = (error) => {
+  return {
+    type: actionTypes.FETCH_QUESTIONS_FAIL,
+    error: error,
+  };
+};
+
+export const fetchQuestions = () => {
   return (dispatch) => {
-    const api = "http://localhost:8081/api/question";
+    dispatch(fetchStart());
 
     axios
       .get(api)
       .then((res) => {
-        dispatch(sendData(res.data));
+        console.log("here");
+        dispatch(fetchQuestionsSuccess(res.data));
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log("comes into here");
+        dispatch(fetchQuestionsFail(err));
       });
   };
 };
 
-const sendData = (data) => {
-  return {
-    type: actionTypes.FETCH_QUESTIONS,
-    data: data,
-  };
-};
-
-export const answerClicked = (data) => {
-  return (dispatch) => {
-    dispatch(sendAnswer(data));
-  };
-};
-
-const sendAnswer = (data) => {
+export const answerClicked = () => {
   return {
     type: actionTypes.ANSWER_CLICKED,
-    data: data,
   };
 };

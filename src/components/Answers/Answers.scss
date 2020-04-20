@@ -1,11 +1,10 @@
 .answer-container {
-  background-color: #979696;
   padding: 6px;
   margin-bottom: 12px;
   cursor: pointer;
   box-shadow: 1px 1px 23px 4px #ccc;
 
   &:hover {
-    filter: brightness(150%);
+    filter: brightness(110%);
   }
 }

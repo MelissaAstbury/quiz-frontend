@@ -7,11 +7,17 @@ import "./Answers.scss";
 const Answers = (props) => {
   const dispatch = useDispatch();
 
+  const answerChosen = () => {
+    setTimeout(() => {
+      dispatch(answerClicked(props.correct));
+    }, 1000);
+  };
+
   return (
     <div
       className="answer-container"
       onClick={() => {
-        dispatch(answerClicked(props.correct));
+        answerChosen();
       }}
     >
       <p>{props.answer}</p>
