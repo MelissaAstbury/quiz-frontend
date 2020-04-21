@@ -46,3 +46,7 @@ export const answerClicked = (data) => {
     data: data,
   };
 };
+
+export const resetGame = () => {
+  return { type: actionTypes.RESET_GAME };
+};

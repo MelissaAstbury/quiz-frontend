@@ -5,3 +5,17 @@
   padding: 22px;
   box-shadow: 1px 1px 4px 1px #ccc;
 }
+
+.play-again {
+  margin: 24px auto;
+  background: aquamarine;
+  max-width: 162px;
+  padding: 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 1px #ccc;
+
+  &:hover {
+    filter: brightness(107%);
+  }
+}

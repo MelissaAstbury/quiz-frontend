@@ -15,6 +15,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, questions: action.payload, loading: false };
     case actionTypes.FETCH_QUESTIONS_FAIL:
       return { ...state, error: action.error, loading: false };
+    case actionTypes.RESET_GAME:
+      return { ...state, count: 1, score: 0 };
     case actionTypes.ANSWER_CLICKED:
       return {
         ...state,

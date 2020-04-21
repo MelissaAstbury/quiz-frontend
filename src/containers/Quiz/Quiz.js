@@ -22,8 +22,8 @@ const Quiz = () => {
         <FinishedCard />
       ) : questions.length > 0 ? (
         questions
-          .filter((i) => {
-            return i.id === count;
+          .filter((question) => {
+            return question.id === count;
           })
           .map((i) => {
             return <Question key={i.id} question={i} />;
